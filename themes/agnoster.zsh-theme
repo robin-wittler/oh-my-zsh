@@ -88,7 +88,7 @@ prompt_end() {
 
 # Date and Time
 prompt_time() {
-  prompt_segment green white "`date +%Y-%m-%dT%H:%M:%S`"
+  prompt_segment green black "`date +%Y-%m-%dT%H:%M:%S`"
 }
 
 
