@@ -86,10 +86,17 @@ prompt_end() {
 ### Prompt components
 # Each component will draw itself, and hide itself if no information needs to be shown
 
+# Date and Time
+prompt_time() {
+  prompt_segment green white "`date +%Y-%m-%dT%H:%M:%S`"
+}
+
+
+
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER@%m"
+    prompt_segment black white "%(!.%{%F{red}%}.)$USER@`hostname -f`"
   fi
 }
 
@@ -227,6 +234,7 @@ prompt_status() {
 ## Main prompt
 build_prompt() {
   RETVAL=$?
+  prompt_time
   prompt_status
   prompt_virtualenv
   prompt_context
