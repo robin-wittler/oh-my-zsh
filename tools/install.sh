@@ -59,8 +59,8 @@ main() {
       exit 1
     fi
   fi
-  env git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git "$ZSH" || {
-    printf "Error: git clone of oh-my-zsh repo failed\n"
+  env git clone --depth=1 https://github.com/robin-wittler/oh-my-zsh.git "$ZSH" || {
+    printf "Error: git clone of my personal oh-my-zsh repo failed\n"
     exit 1
   }
 
@@ -72,7 +72,7 @@ main() {
   fi
 
   printf "${BLUE}Using the Oh My Zsh template file and adding it to ~/.zshrc${NORMAL}\n"
-  cp "$ZSH"/templates/zshrc.zsh-template ~/.zshrc
+  cp "$ZSH"/templates/zshrc.personal-zsh-template ~/.zshrc
   sed "/^export ZSH=/ c\\
   export ZSH=\"$ZSH\"
   " ~/.zshrc > ~/.zshrc-omztemp
